@@ -40,6 +40,10 @@
 		F86AFE2325EB7F6C00BD65BC /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86AFE2225EB7F6C00BD65BC /* MovieResponse.swift */; };
 		F86AFE3725EB909100BD65BC /* MTMovieDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86AFE3625EB909000BD65BC /* MTMovieDetailsVC.swift */; };
 		F86AFE3C25EB996F00BD65BC /* MovideDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86AFE3B25EB996F00BD65BC /* MovideDetailsResponse.swift */; };
+		F890988C25EECBD400943637 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F890988B25EECBD400943637 /* PlayerView.swift */; };
+		F8C78DAC25EEB4320046A648 /* MTVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C78DAB25EEB4320046A648 /* MTVideoPlayerView.swift */; };
+		F8C78DB725EEB8280046A648 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F8C78DB325EEB71D0046A648 /* video.mp4 */; };
+		F8C78DBC25EEBF7B0046A648 /* MTCustomVideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C78DBB25EEBF7B0046A648 /* MTCustomVideoPlayerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +108,10 @@
 		F86AFE2225EB7F6C00BD65BC /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		F86AFE3625EB909000BD65BC /* MTMovieDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTMovieDetailsVC.swift; sourceTree = "<group>"; };
 		F86AFE3B25EB996F00BD65BC /* MovideDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovideDetailsResponse.swift; sourceTree = "<group>"; };
+		F890988B25EECBD400943637 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		F8C78DAB25EEB4320046A648 /* MTVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTVideoPlayerView.swift; sourceTree = "<group>"; };
+		F8C78DB325EEB71D0046A648 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		F8C78DBB25EEBF7B0046A648 /* MTCustomVideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCustomVideoPlayerVC.swift; sourceTree = "<group>"; };
 		FB6E9A92F76BC09A4344D88C /* Pods-MovieTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieTask.debug.xcconfig"; path = "Target Support Files/Pods-MovieTask/Pods-MovieTask.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,6 +221,7 @@
 		F83D65AF25EB655200518F8B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F8C78DB325EEB71D0046A648 /* video.mp4 */,
 				F83D657C25EB654400518F8B /* AppDelegate.swift */,
 				F83D657E25EB654400518F8B /* SceneDelegate.swift */,
 				F83D658525EB654700518F8B /* Assets.xcassets */,
@@ -284,6 +293,8 @@
 			children = (
 				F86AFDED25EB7D6500BD65BC /* MTMovieCell.swift */,
 				F83D65F425EB66AD00518F8B /* Main.storyboard */,
+				F890988B25EECBD400943637 /* PlayerView.swift */,
+				F8C78DAB25EEB4320046A648 /* MTVideoPlayerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,6 +304,7 @@
 			children = (
 				F83D65F925EB66D800518F8B /* MTDashboardVC.swift */,
 				F86AFE3625EB909000BD65BC /* MTMovieDetailsVC.swift */,
+				F8C78DBB25EEBF7B0046A648 /* MTCustomVideoPlayerVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -422,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8C78DB725EEB8280046A648 /* video.mp4 in Resources */,
 				F83D658925EB654700518F8B /* LaunchScreen.storyboard in Resources */,
 				F83D658625EB654700518F8B /* Assets.xcassets in Resources */,
 				F83D65F525EB66AD00518F8B /* Main.storyboard in Resources */,
@@ -561,6 +574,7 @@
 				F83D65E225EB65D100518F8B /* NestableCodingKey.swift in Sources */,
 				F83D657F25EB654400518F8B /* SceneDelegate.swift in Sources */,
 				F83D65FA25EB66D800518F8B /* MTDashboardVC.swift in Sources */,
+				F8C78DBC25EEBF7B0046A648 /* MTCustomVideoPlayerVC.swift in Sources */,
 				F83D65D325EB65D100518F8B /* NetworkManager.swift in Sources */,
 				F83D65D725EB65D100518F8B /* Window+VisibleVC.swift in Sources */,
 				F86AFE1E25EB7EC200BD65BC /* MTDashboardVM.swift in Sources */,
@@ -569,10 +583,12 @@
 				F83D65E125EB65D100518F8B /* APIEndpoints.swift in Sources */,
 				F86AFE3C25EB996F00BD65BC /* MovideDetailsResponse.swift in Sources */,
 				F83D65E325EB65D100518F8B /* AFRequestInterceptor.swift in Sources */,
+				F8C78DAC25EEB4320046A648 /* MTVideoPlayerView.swift in Sources */,
 				F86AFE2325EB7F6C00BD65BC /* MovieResponse.swift in Sources */,
 				F83D65D425EB65D100518F8B /* Helper.swift in Sources */,
 				F83D65E525EB65D100518F8B /* Endpoint.swift in Sources */,
 				F83D65E025EB65D100518F8B /* AFRequestMonitor.swift in Sources */,
+				F890988C25EECBD400943637 /* PlayerView.swift in Sources */,
 				F83D65DE25EB65D100518F8B /* APIError.swift in Sources */,
 				F83D65DB25EB65D100518F8B /* Date+Helper.swift in Sources */,
 				F83D65DD25EB65D100518F8B /* UIAlertController+Show.swift in Sources */,

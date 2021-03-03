@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class MTMovieDetailsVC: UIViewController {
-
+    
     @IBOutlet weak private var titleImageView: UIImageView!
     @IBOutlet weak private var titleLbl: UILabel!
     @IBOutlet weak private var ratingLbl: UILabel!
@@ -20,6 +22,11 @@ class MTMovieDetailsVC: UIViewController {
     @IBOutlet weak private var releaseDateLbl: UILabel!
     @IBOutlet weak private var languageLbl: UILabel!
     @IBOutlet weak private var publisherLbl: UILabel!
+    @IBOutlet weak private var playImageView: UIImageView!
+    
+    @IBOutlet private weak var playerView: PlayerView!
+    private var videoPlayer:VideoPlayer?
+    
     
     var viewModel: MTDashboardVM?
     var titleId = 0
@@ -27,9 +34,12 @@ class MTMovieDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         title = "Movie Details"
         getData()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        playImageView.addGestureRecognizer(tap)
     }
     
     private func getData(){
@@ -63,5 +73,37 @@ class MTMovieDetailsVC: UIViewController {
         
         languageLbl.attributedText = NSMutableAttributedString().bold("Language: ").normal(vm.getLanguage())
         publisherLbl.attributedText = NSMutableAttributedString().bold("Publisher: ").normal(vm.getPublisherName())
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        //        playVideo()
+        testPlay()
+    }
+    
+    private func testPlay(){
+        
+        let storyboard = UIStoryboard(storyboard: .dashboard)
+        let vc = storyboard.instantiateViewController(withIdentifier: MTCustomVideoPlayerVC.self)
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    private func playVideo() {
+        
+        guard let path = Bundle.main.path(forResource: "video", ofType: "mp4") else {
+            return
+        }
+        let videoURL = NSURL(fileURLWithPath: path)
+        
+        // Create an AVPlayer, passing it the local video url path
+        let player = AVPlayer(url: videoURL as URL)
+        let controller = AVPlayerViewController()
+        controller.player = player
+        
+        controller.requiresLinearPlayback = true
+        controller.showsPlaybackControls = true
+        present(controller, animated: true) {
+            player.play()
+        }
+        
     }
 }

@@ -23,8 +23,13 @@ struct Helper{
     static func showAlert(msg: String) {
         let alert = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        let mwindow = UIApplication.shared.keyWindow!
-        guard let parentVC = mwindow.visibleViewController() else {return}
+        let mwindow = UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+        guard let parentVC = mwindow?.visibleViewController() else {return}
         parentVC.present(alert, animated: true, completion: nil)
     }
     

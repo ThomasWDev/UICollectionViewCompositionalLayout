@@ -158,7 +158,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oq7-lS-Bo1">
                                         <rect key="frame" x="248" y="30" width="156" height="170"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4Jj-Tt-1mq">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4Jj-Tt-1mq">
                                                 <rect key="frame" x="43" y="30.5" width="70" height="69"/>
                                                 <color key="tintColor" systemColor="systemPurpleColor"/>
                                                 <constraints>
@@ -257,8 +257,8 @@
                                     <constraint firstAttribute="trailing" secondItem="hiM-kX-Vdl" secondAttribute="trailing" constant="20" id="A6Q-ry-gPW"/>
                                     <constraint firstItem="oq7-lS-Bo1" firstAttribute="top" secondItem="AuD-8l-eTf" secondAttribute="top" constant="30" id="KcS-Zt-x6n"/>
                                     <constraint firstItem="hiM-kX-Vdl" firstAttribute="top" secondItem="oq7-lS-Bo1" secondAttribute="bottom" constant="40" id="R0L-yt-QXx"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hiM-kX-Vdl" secondAttribute="bottom" constant="40" id="Vq9-xx-apa"/>
                                     <constraint firstItem="oq7-lS-Bo1" firstAttribute="leading" secondItem="rJp-vb-APG" secondAttribute="trailing" constant="8" symbolic="YES" id="XvM-7j-1DP"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hiM-kX-Vdl" secondAttribute="bottom" constant="40" id="YaQ-p4-oYb"/>
                                     <constraint firstItem="rJp-vb-APG" firstAttribute="width" secondItem="AuD-8l-eTf" secondAttribute="width" multiplier="0.4" id="d2M-zr-yPE"/>
                                     <constraint firstItem="hiM-kX-Vdl" firstAttribute="top" secondItem="rJp-vb-APG" secondAttribute="bottom" constant="40" id="dYx-LS-ahL"/>
                                     <constraint firstItem="rJp-vb-APG" firstAttribute="centerX" secondItem="AuD-8l-eTf" secondAttribute="centerX" constant="-50" id="eyu-Yq-ZGS"/>
@@ -282,6 +282,7 @@
                         <outlet property="directorNameLbl" destination="RT4-zw-I35" id="RhS-Et-tcb"/>
                         <outlet property="genreLbl" destination="bHN-X0-RWB" id="RFa-SI-BwA"/>
                         <outlet property="languageLbl" destination="TGX-g4-ccb" id="1wk-bz-Mn3"/>
+                        <outlet property="playImageView" destination="4Jj-Tt-1mq" id="9Oh-Np-GB3"/>
                         <outlet property="publisherLbl" destination="SgC-jn-2Fm" id="gLc-RL-Ebg"/>
                         <outlet property="ratingLbl" destination="LJc-Mc-uIO" id="4sm-Mw-aJb"/>
                         <outlet property="releaseDateLbl" destination="dCv-C4-gL1" id="W8o-nF-AZR"/>
@@ -295,9 +296,88 @@
             </objects>
             <point key="canvasLocation" x="556.52173913043487" y="70.982142857142847"/>
         </scene>
+        <!--Custom Video PlayerVC-->
+        <scene sceneID="RvM-m8-Npm">
+            <objects>
+                <viewController storyboardIdentifier="MTCustomVideoPlayerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e7c-tu-9LB" customClass="MTCustomVideoPlayerVC" customModule="MovieTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kS1-I6-8RG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.open.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JgX-Ih-kB0">
+                                <rect key="frame" x="344" y="44.5" width="50" height="57.5"/>
+                                <color key="tintColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="bO5-3f-qXh"/>
+                                    <constraint firstAttribute="height" constant="59" id="jeW-ve-wLx"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPT-Hl-3bm">
+                                <rect key="frame" x="0.0" y="103" width="414" height="759"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cj7-Iv-Pl5" customClass="PlayerView" customModule="MovieTask" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="669"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pause.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S5L-yL-O0m">
+                                        <rect key="frame" x="182" y="689.5" width="50" height="49"/>
+                                        <color key="tintColor" systemColor="systemPurpleColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="I7p-W6-AuK"/>
+                                            <constraint firstAttribute="height" constant="50" id="kd1-HT-ijW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DAK-a1-hkT">
+                                        <rect key="frame" x="20" y="689.5" width="50" height="49"/>
+                                        <color key="tintColor" systemColor="systemPurpleColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="vWC-sk-Ca3"/>
+                                            <constraint firstAttribute="height" constant="50" id="x6u-uh-NU9"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Cj7-Iv-Pl5" firstAttribute="top" secondItem="fPT-Hl-3bm" secondAttribute="top" id="Aqo-Rr-IfY"/>
+                                    <constraint firstItem="Cj7-Iv-Pl5" firstAttribute="leading" secondItem="fPT-Hl-3bm" secondAttribute="leading" id="D60-yp-3EL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cj7-Iv-Pl5" secondAttribute="trailing" id="HaA-5W-Vs6"/>
+                                    <constraint firstItem="S5L-yL-O0m" firstAttribute="top" secondItem="Cj7-Iv-Pl5" secondAttribute="bottom" constant="20" id="Kf1-8D-WTY"/>
+                                    <constraint firstItem="DAK-a1-hkT" firstAttribute="leading" secondItem="fPT-Hl-3bm" secondAttribute="leading" constant="20" id="QtP-rV-tWU"/>
+                                    <constraint firstItem="S5L-yL-O0m" firstAttribute="centerX" secondItem="fPT-Hl-3bm" secondAttribute="centerX" id="ZeT-bv-Nt5"/>
+                                    <constraint firstItem="DAK-a1-hkT" firstAttribute="centerY" secondItem="S5L-yL-O0m" secondAttribute="centerY" id="b6u-yG-fPF"/>
+                                    <constraint firstAttribute="bottom" secondItem="S5L-yL-O0m" secondAttribute="bottom" constant="20" id="lPd-4s-NIf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="n5O-a2-RyL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fPT-Hl-3bm" firstAttribute="top" secondItem="JgX-Ih-kB0" secondAttribute="bottom" id="0XA-ts-kl5"/>
+                            <constraint firstItem="n5O-a2-RyL" firstAttribute="bottom" secondItem="fPT-Hl-3bm" secondAttribute="bottom" id="5eO-4Q-Nqh"/>
+                            <constraint firstItem="n5O-a2-RyL" firstAttribute="trailing" secondItem="fPT-Hl-3bm" secondAttribute="trailing" id="CXn-uZ-5lP"/>
+                            <constraint firstItem="n5O-a2-RyL" firstAttribute="trailing" secondItem="JgX-Ih-kB0" secondAttribute="trailing" constant="20" id="FAf-XS-EI3"/>
+                            <constraint firstItem="JgX-Ih-kB0" firstAttribute="top" secondItem="n5O-a2-RyL" secondAttribute="top" id="aT4-JA-6m8"/>
+                            <constraint firstItem="fPT-Hl-3bm" firstAttribute="leading" secondItem="n5O-a2-RyL" secondAttribute="leading" id="ybz-zR-FEO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lockUnlockImageView" destination="JgX-Ih-kB0" id="ofx-bZ-rbe"/>
+                        <outlet property="playPauseImageView" destination="S5L-yL-O0m" id="C0S-qF-Ijk"/>
+                        <outlet property="playerBGView" destination="fPT-Hl-3bm" id="EG7-sp-nLh"/>
+                        <outlet property="playerView" destination="Cj7-Iv-Pl5" id="vk0-Vs-Rda"/>
+                        <outlet property="stopImageView" destination="DAK-a1-hkT" id="B1U-q7-MB9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h0V-r4-Mmd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-262.31884057971018" y="833.70535714285711"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="lock.open.fill" catalog="system" width="128" height="112"/>
+        <image name="pause.circle.fill" catalog="system" width="128" height="121"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="stop.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
