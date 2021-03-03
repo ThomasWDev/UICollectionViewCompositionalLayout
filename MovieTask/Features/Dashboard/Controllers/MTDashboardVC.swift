@@ -23,20 +23,15 @@ class MTDashboardVC: UIViewController {
     
     private func setupCollectionView(){
         let compositionalLayout: UICollectionViewCompositionalLayout = {
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                                  heightDimension: .fractionalHeight(1.0))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                   heightDimension: .fractionalWidth(0.7))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.7))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            
             let section = NSCollectionLayoutSection(group: group)
-            
             let layout = UICollectionViewCompositionalLayout(section: section)
-            
             return layout
         }()
+        
         clcView.collectionViewLayout = compositionalLayout
     }
     

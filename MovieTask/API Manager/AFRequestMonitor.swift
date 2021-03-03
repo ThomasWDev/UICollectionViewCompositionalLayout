@@ -35,7 +35,5 @@ final class AFRequestMonitor: EventMonitor {
         debugPrint("⚡️⚡️⚡️⚡️ ================ RESPONSE =================== ⚡️⚡️⚡️⚡️")
         debugPrint(response)
         debugPrint("⚡️⚡️⚡️⚡️ ================ RESPONSE END =============== ⚡️⚡️⚡️⚡️")
-//        let body = request.data.map { String(decoding: $0, as: UTF8.self) } ?? "No body."
-//        print("[Body]: \(body)")
     }
 }

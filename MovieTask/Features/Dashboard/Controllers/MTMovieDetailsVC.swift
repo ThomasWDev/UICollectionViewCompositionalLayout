@@ -25,7 +25,7 @@ class MTMovieDetailsVC: UIViewController {
     @IBOutlet weak private var playImageView: UIImageView!
     
     @IBOutlet private weak var playerView: PlayerView!
-    private var videoPlayer:VideoPlayer?
+    private var videoPlayer: VideoPlayer?
     
     
     var viewModel: MTDashboardVM?
@@ -76,34 +76,13 @@ class MTMovieDetailsVC: UIViewController {
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        //        playVideo()
-        testPlay()
+        playVideo()
     }
     
-    private func testPlay(){
-        
+    private func playVideo(){
         let storyboard = UIStoryboard(storyboard: .dashboard)
         let vc = storyboard.instantiateViewController(withIdentifier: MTCustomVideoPlayerVC.self)
+        vc.isModalInPresentation = true
         self.present(vc, animated: true, completion: nil)
-    }
-    
-    private func playVideo() {
-        
-        guard let path = Bundle.main.path(forResource: "video", ofType: "mp4") else {
-            return
-        }
-        let videoURL = NSURL(fileURLWithPath: path)
-        
-        // Create an AVPlayer, passing it the local video url path
-        let player = AVPlayer(url: videoURL as URL)
-        let controller = AVPlayerViewController()
-        controller.player = player
-        
-        controller.requiresLinearPlayback = true
-        controller.showsPlaybackControls = true
-        present(controller, animated: true) {
-            player.play()
-        }
-        
     }
 }

@@ -81,10 +81,8 @@ class MTDashboardVM{
     }
     
     
-    // Mark:- Detials
-    
-    
-    
+    // Mark:- Detials feature
+
     func getPublisherName()->String{
         guard let title = movideDetails?.publisherName else {return ""}
         return title
