@@ -1,2 +1,2 @@
 # UICollectionViewCompositionalLayout
-UICollectionView Compositional Layout Task
+UICollectionView Compositional Layout task
