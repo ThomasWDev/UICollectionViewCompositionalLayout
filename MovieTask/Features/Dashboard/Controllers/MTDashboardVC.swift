@@ -8,16 +8,38 @@
 import UIKit
 
 class MTDashboardVC: UIViewController {
-
+    
     @IBOutlet weak private var clcView: UICollectionView!
     
     private let viewModel = MTDashboardVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupCollectionView()
         getData()
     }
+    
+    
+    private func setupCollectionView(){
+        let compositionalLayout: UICollectionViewCompositionalLayout = {
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+                                                  heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                   heightDimension: .fractionalWidth(0.7))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            
+            let section = NSCollectionLayoutSection(group: group)
+            
+            let layout = UICollectionViewCompositionalLayout(section: section)
+            
+            return layout
+        }()
+        clcView.collectionViewLayout = compositionalLayout
+    }
+    
     
     private func getData(){
         viewModel.getMovieList {[weak self] (success) in
@@ -28,7 +50,7 @@ class MTDashboardVC: UIViewController {
     }
 }
 
-extension MTDashboardVC: UICollectionViewDelegate, UICollectionViewDataSource{
+extension MTDashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if viewModel.getMovideList().count == 0 {
             Helper.emptyMessageInCollectionView(collectionView, "No data available")
@@ -57,9 +79,21 @@ extension MTDashboardVC: UICollectionViewDelegate, UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // need to add details view calling here
-
+        let titleId = viewModel.getTitleId(index: indexPath.row)
+        let artKey = viewModel.getArtKey(index: indexPath.row)
+        let imageUrl = Constants.getimageURL(artKey: artKey)
+        
+        showMovieDetails(imageUrl: imageUrl, titleId: titleId)
+        
     }
-
+    
+    private func showMovieDetails(imageUrl: String, titleId: Int){
+        let storyboard = UIStoryboard(storyboard: .dashboard)
+        let vc = storyboard.instantiateViewController(withIdentifier: MTMovieDetailsVC.self)
+        vc.viewModel = self.viewModel
+        vc.imageUrl = imageUrl
+        vc.titleId = titleId
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }

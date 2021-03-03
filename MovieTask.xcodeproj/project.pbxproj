@@ -38,6 +38,8 @@
 		F86AFDEE25EB7D6500BD65BC /* MTMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86AFDED25EB7D6500BD65BC /* MTMovieCell.swift */; };
 		F86AFE1E25EB7EC200BD65BC /* MTDashboardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86AFE1D25EB7EC200BD65BC /* MTDashboardVM.swift */; };
 		F86AFE2325EB7F6C00BD65BC /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86AFE2225EB7F6C00BD65BC /* MovieResponse.swift */; };
+		F86AFE3725EB909100BD65BC /* MTMovieDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86AFE3625EB909000BD65BC /* MTMovieDetailsVC.swift */; };
+		F86AFE3C25EB996F00BD65BC /* MovideDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86AFE3B25EB996F00BD65BC /* MovideDetailsResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		F86AFDED25EB7D6500BD65BC /* MTMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTMovieCell.swift; sourceTree = "<group>"; };
 		F86AFE1D25EB7EC200BD65BC /* MTDashboardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTDashboardVM.swift; sourceTree = "<group>"; };
 		F86AFE2225EB7F6C00BD65BC /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		F86AFE3625EB909000BD65BC /* MTMovieDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTMovieDetailsVC.swift; sourceTree = "<group>"; };
+		F86AFE3B25EB996F00BD65BC /* MovideDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovideDetailsResponse.swift; sourceTree = "<group>"; };
 		FB6E9A92F76BC09A4344D88C /* Pods-MovieTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieTask.debug.xcconfig"; path = "Target Support Files/Pods-MovieTask/Pods-MovieTask.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -288,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				F83D65F925EB66D800518F8B /* MTDashboardVC.swift */,
+				F86AFE3625EB909000BD65BC /* MTMovieDetailsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				F86AFE2225EB7F6C00BD65BC /* MovieResponse.swift */,
+				F86AFE3B25EB996F00BD65BC /* MovideDetailsResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -547,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F83D65E425EB65D100518F8B /* URLPaths.swift in Sources */,
+				F86AFE3725EB909100BD65BC /* MTMovieDetailsVC.swift in Sources */,
 				F83D65DF25EB65D100518F8B /* APIClient.swift in Sources */,
 				F83D65D825EB65D100518F8B /* UIStoryboard+Helper.swift in Sources */,
 				F83D65DC25EB65D100518F8B /* String+Helper.swift in Sources */,
@@ -560,6 +567,7 @@
 				F83D65D125EB65D100518F8B /* Constants.swift in Sources */,
 				F83D65D525EB65D100518F8B /* TTAppHelper.swift in Sources */,
 				F83D65E125EB65D100518F8B /* APIEndpoints.swift in Sources */,
+				F86AFE3C25EB996F00BD65BC /* MovideDetailsResponse.swift in Sources */,
 				F83D65E325EB65D100518F8B /* AFRequestInterceptor.swift in Sources */,
 				F86AFE2325EB7F6C00BD65BC /* MovieResponse.swift in Sources */,
 				F83D65D425EB65D100518F8B /* Helper.swift in Sources */,
@@ -740,7 +748,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6T32YU9C2P;
 				INFOPLIST_FILE = MovieTask/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -761,7 +769,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6T32YU9C2P;
 				INFOPLIST_FILE = MovieTask/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
